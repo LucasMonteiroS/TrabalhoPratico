@@ -1,0 +1,15 @@
+.header{
+    background-color: #121212;
+    color: #CCCCCC;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+.links{
+    margin: 20px 30px;
+    text-decoration: none;
+    color: #CCCCCC;
+}
