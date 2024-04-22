@@ -10,6 +10,7 @@ import { Login } from "./pages/login";
 import { Private } from "./routes/Private";
 import { Favorito } from "./pages/favorito";
 import { Detalhe } from "./pages/detalhe";
+import { AlterarUsuario } from "./pages/alterarUsuario";
 
 const router  = createBrowserRouter([
     {
@@ -54,6 +55,10 @@ const router  = createBrowserRouter([
                 {
                     path: '*',
                     element: <NotFound/>
+                },
+                {
+                    path: 'editUser',
+                    element: <AlterarUsuario/>
                 }
         ]
     }
