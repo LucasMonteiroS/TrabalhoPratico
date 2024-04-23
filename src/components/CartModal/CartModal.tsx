@@ -11,8 +11,6 @@ interface CartModalProps {
   const CartModal: React.FC<CartModalProps> = ({ open, closeModal }) => {
 const { removeProduct, cart, clearCart } = useCart();
 useEffect(() => {
-    // Essa função será executada sempre que o 'cart' mudar
-    console.log('Cart updated:', cart);
   }, [cart]); // Assim, o useEffect observará apenas mudanças no 'cart'
 if (!cart) {
         return (

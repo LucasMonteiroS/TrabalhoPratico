@@ -13,13 +13,11 @@ import {
   InputContainer,
   InputField
 } from "../../components/styled-components/Login/style";
-import { useUser } from "../../components/context/UserContext";
 
 export const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const { updateUser } = useUser();
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -31,7 +29,6 @@ export const Login: React.FC = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log("Logado com sucesso!");
-        updateUser(user); 
         localStorage.setItem('userData', JSON.stringify(user)); 
         navigate("/produto", { replace: true });
       })

@@ -24,13 +24,15 @@ export function Home(){
     },[])
     return(
         <ContainerProds>
+            <CartProvider>
             {card.map((item, index) =>(
                 <div key={index}>
-                    <CartProvider>
+                    
                     <Card id={item.id} imageUrl={item.image} title={item.title} text={item.description} buttonText={'Detalhes'} buttonUrl={'/detalhe/' + item.id} {...card}/>
-                    </CartProvider>
+                    
                 </div>
             ))}
+            </CartProvider>
             <h1>Descrição do Produto{id}</h1>
         </ContainerProds>
     )
