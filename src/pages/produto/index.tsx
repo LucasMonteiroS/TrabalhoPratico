@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Card from '../../components/Card/card';
 import { ContainerProds } from '../../components/styled-components/Card/style';
+import { CartProvider } from '../../components/context/CartContext';
 
 interface CardProps {
     id: number;
@@ -26,7 +27,9 @@ export function Produto(){
         <ContainerProds>
             {card.map((item, index) =>(
                 <div key={index}>
-                    <Card id={item.id} imageUrl={item.image} title={item.title} text={item.description} buttonText={'Ver Detalhes'} buttonUrl={'/detalhe/' + item.id} {...card}/>
+                    <CartProvider>
+                    <Card id={item.id} imageUrl={item.image} title={item.title} text={item.description} buttonText={'Detalhes'} buttonUrl={'/detalhe/' + item.id} {...card}/>
+                    </CartProvider>
                 </div>
             ))}
             <h1>Descrição do Produto{id}</h1>

@@ -11,6 +11,9 @@ import {
 } from "../styled-components/Card/style";
 
 import { db } from "../../services/firebaseConnection";
+import { useCart } from "../context/CartContext";
+
+
 
 interface CardProps {
   imageUrl: string;
@@ -42,6 +45,12 @@ const Card: React.FC<CardProps> = ({
       .catch((error) => console.log(error));
   }
 
+  const { addProduct } = useCart();
+  
+  function handleAddToCart() {
+    addProduct(id);
+  }
+
   return (
     <>
       <ProductCard>
@@ -54,6 +63,9 @@ const Card: React.FC<CardProps> = ({
             <ProductFavButton type="button" onClick={handleBookmark}>
               Favoritar
             </ProductFavButton>
+            <ProductButton type="button" onClick={handleAddToCart}>
+              Add
+            </ProductButton>
           </ProductButtons>
         </ProductInfo>
       </ProductCard>

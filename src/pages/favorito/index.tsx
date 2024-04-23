@@ -6,6 +6,7 @@ import {
     getDocs
   } from "firebase/firestore";
 import { ContainerProds } from '../../components/styled-components/Card/style';
+import { CartProvider } from '../../components/context/CartContext';
 
   interface CardData {
     id: number;
@@ -36,7 +37,9 @@ export function Favorito() {
         <ContainerProds>
             {card.map((item, index) => (
                 <div key={index}>
+                    <CartProvider>
                     <Card id={item.id} imageUrl={item.image} title={item.title} text={item.description} buttonText={'Ver Detalhes'} buttonUrl={'/detalhe/' + item.id} {...card} />
+                    </CartProvider>
                 </div>
             ))}
         </ContainerProds>
